@@ -11,10 +11,11 @@ st.bar_chart(df)
 
 st.sidebar.header("les parametres d'entrées")
 st.sidebar.write('''
-# Application de prédiction d'insufissance cardique
-Cette Application prédite le statut de l'insufissance cardiaque du patient lors des analyses  
+# Application prédiction de crise cardique
+Cette Application prédite si le patient aura une crise cardiaque lors des analyses  
 Auteur: Parfait Tanoh N'goran
 ''')
+
 
 st.title("Application de prédiction :ship:")
 age = st.text_input("Entrer l'age", '52') 
@@ -47,9 +48,9 @@ def predict():
     X = pd.DataFrame(data,index=[0])
     prediction = model.predict(X)
     if prediction[0] == 1: 
-        st.success("Survécu de l'insuffisance Cardiaque:thumbsup:")
+        st.success("Le patient aura une crise Cardiaque:thumbsup:")
     else: 
-        st.error("Pas Survécu de l'insuffisance Cardiaque :thumbsdown:") 
+        st.error("Le patient n'aura pas de crise Cardiaque :thumbsdown:") 
 
 trigger = st.button('Predict', on_click=predict)
 
